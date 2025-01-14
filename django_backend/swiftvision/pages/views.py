@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from .utils import *
+
 
 def index(request):
     return render(request, "main_page.html")
@@ -136,4 +138,5 @@ def skills(request):
                   'skills_table_2024': skills_table_2024})
 
 def vacancies(request):
-    return render(request, "vacancies.html")
+    vacancies = get_vacancies('ios-разработчик')
+    return render(request, "vacancies.html", {'vacancies': vacancies})

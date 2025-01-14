@@ -13,6 +13,9 @@
             <img src='{% static "images/logo.jpg" %}' alt="Логотип" class="logo">
             <a href='{% url "homepage" %}' class="link"><h1>SwiftVision</h1></a>
         </div>
+        <div class="admin-login" style="margin-right: 10px;border: 2px solid #000000;border-radius: 15px; padding: 10px 30px;">
+            <a href="{% url 'admin:index' %}" class="admin-btn link" style="color: black">Войти</a>
+        </div>
     </header>
     <div class="container">
         <aside class="sidebar">
