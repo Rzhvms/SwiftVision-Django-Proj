@@ -162,10 +162,20 @@ header {
     justify-content: center;
 }
 
+.mini-title {
+    font-size: 28px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
 .info-text img {
-    max-width: 100%;
-    height: auto;
     border-radius: 20px;
+    width: 1200px;
+    box-shadow: 2px 2px 10px rgba(114, 56, 168, 0.1);
 }
 
 .text {
@@ -198,3 +208,25 @@ header {
     border-top: 2px solid #BEAEAE;
     font-size: 24px;
 }
+
+
+
+/*table {
+    width: 100%;
+    border-top: 7px solid rgb(43, 129, 17);
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+  }
+  
+  td {
+    text-align: left;
+      padding: 10px;
+      border: 3px solid rgb(43, 129, 17);
+  }
+   th {
+    text-align: center;
+    padding: 10px;
+      border: 3px solid rgb(43, 129, 17);
+   }*/

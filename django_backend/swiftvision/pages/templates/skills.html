@@ -26,16 +26,287 @@
         <main class="main-cont">
             <div class="info-text">
                 <h1>Навыки</h1>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
+                <h2 class="mini-title" style='display: flex; justify-content: center;'>ТОП-20 навыков по годам для iOS-Разработчика</h2>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2015</h3>
+                <div>
+                    {% if top_skills_2015 %}
+                        {% for graphic in top_skills_2015 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2015" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2015 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2016</h3>
+                <div>
+                    {% if top_skills_2016 %}
+                        {% for graphic in top_skills_2016 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2016" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2016 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2017</h3>
+                <div>
+                    {% if top_skills_2017 %}
+                        {% for graphic in top_skills_2017 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2017" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2017 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2018</h3>
+                <div>
+                    {% if top_skills_2018 %}
+                        {% for graphic in top_skills_2018 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2018" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2018 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2019</h3>
+                <div>
+                    {% if top_skills_2019 %}
+                        {% for graphic in top_skills_2019 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2019" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2019 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2020</h3>
+                <div>
+                    {% if top_skills_2020 %}
+                        {% for graphic in top_skills_2020 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2020" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2020 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2021</h3>
+                <div>
+                    {% if top_skills_2021 %}
+                        {% for graphic in top_skills_2021 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2021" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2021 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2022</h3>
+                <div>
+                    {% if top_skills_2022 %}
+                        {% for graphic in top_skills_2022 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2022" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2022 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2023</h3>
+                <div>
+                    {% if top_skills_2023 %}
+                        {% for graphic in top_skills_2023 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2023" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2023 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h3 class="mini-title" style='display: flex; justify-content: center;'>2024</h3>
+                <div>
+                    {% if top_skills_2024 %}
+                        {% for graphic in top_skills_2024 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_2024" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2024 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_prof }}</td>
+                            <td>{{ row.freq_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

@@ -27,354 +27,394 @@
             <div class="info-text">
                 <h1>Общая статистика</h1>
                 <h2 class="mini-title" style='display: flex; justify-content: center;'>Динамика уровня зарплат по годам</h2>
-                <img class='image_style' src='{% static "images/salary_dynamics_all.png" %}' alt="salary_dynamics_all" style="width: 100%;">
+                <div>
+                    {% if salary_dynamics_all %}
+                        {% for graphic in salary_dynamics_all %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="salary_dynamics_all" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>Год</th><th>Средняя зарплата (RUB)</th></tr>
-                    <tr><td>2003</td><td>41305</td></tr>
-                    <tr><td>2004</td><td>42968</td></tr>
-                    <tr><td>2005</td><td>44939</td></tr>
-                    <tr><td>2006</td><td>41318</td></tr>
-                    <tr><td>2007</td><td>44449</td></tr>
-                    <tr><td>2008</td><td>48411</td></tr>
-                    <tr><td>2009</td><td>44812</td></tr>
-                    <tr><td>2010</td><td>44658</td></tr>
-                    <tr><td>2011</td><td>46449</td></tr>
-                    <tr><td>2012</td><td>47462</td></tr>
-                    <tr><td>2013</td><td>49086</td></tr>
-                    <tr><td>2014</td><td>48552</td></tr>
-                    <tr><td>2015</td><td>51448</td></tr>
-                    <tr><td>2016</td><td>55613</td></tr>
-                    <tr><td>2017</td><td>60364</td></tr>
-                    <tr><td>2018</td><td>65444</td></tr>
-                    <tr><td>2019</td><td>69830</td></tr>
-                    <tr><td>2020</td><td>72724</td></tr>
-                    <tr><td>2021</td><td>83011</td></tr>
-                    <tr><td>2022</td><td>91437</td></tr>
-                    <tr><td>2023</td><td>98976</td></tr>
-                    <tr><td>2024</td><td>110283</td></tr>
+                    <thead>
+                        <tr>
+                            <th>Год</th>
+                            <th>Средняя зарплата</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in salary_dynamics_table_all %}
+                        <tr>
+                            <td>{{ row.year }}</td>
+                            <td>{{ row.avg_salary }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
+            
                 <h2 class="mini-title" style='display: flex; justify-content: center;'>Динамика количества вакансий по годам</h2>
-                <img src='{% static "images/vacancy_dynamics_all.png" %}' alt="vacancy_dynamics_all" style="width: 100%;">
+                <div>
+                    {% if vacancy_dynamics_all %}
+                        {% for graphic in vacancy_dynamics_all %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="vacancy_dynamics_all" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>Год</th><th>Количество вакансий</th></tr>
-                    <tr><td>2003</td><td>1983</td></tr>
-                    <tr><td>2004</td><td>7833</td></tr>
-                    <tr><td>2005</td><td>16020</td></tr>
-                    <tr><td>2006</td><td>33321</td></tr>
-                    <tr><td>2007</td><td>53562</td></tr>
-                    <tr><td>2008</td><td>75070</td></tr>
-                    <tr><td>2009</td><td>52889</td></tr>
-                    <tr><td>2010</td><td>93494</td></tr>
-                    <tr><td>2011</td><td>141458</td></tr>
-                    <tr><td>2012</td><td>173898</td></tr>
-                    <tr><td>2013</td><td>234017</td></tr>
-                    <tr><td>2014</td><td>259567</td></tr>
-                    <tr><td>2015</td><td>284762</td></tr>
-                    <tr><td>2016</td><td>332452</td></tr>
-                    <tr><td>2017</td><td>391464</td></tr>
-                    <tr><td>2018</td><td>517666</td></tr>
-                    <tr><td>2019</td><td>535958</td></tr>
-                    <tr><td>2020</td><td>611882</td></tr>
-                    <tr><td>2021</td><td>943156</td></tr>
-                    <tr><td>2022</td><td>887522</td></tr>
-                    <tr><td>2023</td><td>709542</td></tr>
-                    <tr><td>2024</td><td>556736</td></tr>
+                    <thead>
+                        <tr>
+                            <th>Год</th>
+                            <th>Количество вакансий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in salary_dynamics_table_all %}
+                        <tr>
+                            <td>{{ row.year }}</td>
+                            <td>{{ row.vacancy_count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
+                
                 <h2 class="mini-title" style='display: flex; justify-content: center;'>Уровень зарплат по городам</h2>
-                <img src='{% static "images/city_salary_dynamics_all.png" %}' alt="city_salary_dynamics_all" style="width: 100%;">
+                <div>
+                    {% if city_salary_dynamics_all %}
+                        {% for graphic in city_salary_dynamics_all %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="city_salary_dynamics_all" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>Город</th><th>Средняя зарплата (RUB)</th></tr>
-                    <tr><td>Бар</td><td>1245705</td></tr>
-                    <tr><td>Калинковичи</td><td>865344</td></tr>
-                    <tr><td>Шахрисабз</td><td>674928</td></tr>
-                    <tr><td>Айет</td><td>567361</td></tr>
-                    <tr><td>Шри-Ланка</td><td>500389</td></tr>
-                    <tr><td>Шотландия</td><td>419206</td></tr>
-                    <tr><td>Моршин</td><td>409405</td></tr>
-                    <tr><td>Винники</td><td>409405</td></tr>
-                    <tr><td>Золочев (Львовская область)</td><td>409405</td></tr>
-                    <tr><td>Дубляны</td><td>409405</td></tr>
-                    <tr><td>Жолква</td><td>409405</td></tr>
-                    <tr><td>Жидачов</td><td>409405</td></tr>
-                    <tr><td>Глиняны</td><td>409405</td></tr>
-                    <tr><td>Добромиль</td><td>409405</td></tr>
-                    <tr><td>Германия</td><td>405268</td></tr>
-                    <tr><td>Виноградное (Калмыкия)</td><td>402733</td></tr>
-                    <tr><td>Япония</td><td>391991</td></tr>
-                    <tr><td>Бельгия</td><td>390010</td></tr>
-                    <tr><td>Мальта</td><td>354148</td></tr>
-                    <tr><td>ЮАР</td><td>349530</td></tr>
+                    <thead>
+                        <tr>
+                            <th>Город</th>
+                            <th>Средняя зарплата (RUB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in city_salary_dynamics_table %}
+                        <tr>
+                            <td>{{ row.city_all }}</td>
+                            <td>{{ row.salary_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
+
                 <h2 class="mini-title" style='display: flex; justify-content: center;'>Доля вакансий по городам</h2>
-                <img src='{% static "images/city_vacancy_share_all.png" %}' alt="city_vacancy_share_all" style="width: 100%;">
+                <div>
+                    {% if city_vacancy_share_all %}
+                        {% for graphic in city_vacancy_share_all %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="city_vacancy_share_all" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 100px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>Город</th><th>Доля вакансий (%)</th></tr>
-                    <tr><td>Москва</td><td>33,83</td></tr>
-                    <tr><td>Санкт-Петербург</td><td>10,11</td></tr>
-                    <tr><td>Минск</td><td>3,51</td></tr>
-                    <tr><td>Новосибирск</td><td>2,38</td></tr>
-                    <tr><td>Екатеринбург</td><td>2,22</td></tr>
-                    <tr><td>Нижний Новгород</td><td>2,07</td></tr>
-                    <tr><td>Киев</td><td>2,03</td></tr>
-                    <tr><td>Алматы</td><td>2,02</td></tr>
-                    <tr><td>Казань</td><td>1,99</td></tr>
-                    <tr><td>Воронеж</td><td>1,62</td></tr>
-                    <tr><td>Краснодар</td><td>1,49</td></tr>
-                    <tr><td>Ростов-на-Дону</td><td>1,34</td></tr>
-                    <tr><td>Самара</td><td>1,31</td></tr>
-                    <tr><td>Пермь</td><td>1,01</td></tr>
-                    <tr><td>Другие</td><td>33,06</td></tr>
+                    <thead>
+                        <tr>
+                            <th>Город</th>
+                            <th>Доля вакансий (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in city_salary_share_table %}
+                        <tr>
+                            <td>{{ row.city_all }}</td>
+                            <td>{{ row.share_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
+
                 <h2 class="mini-title" style='display: flex; justify-content: center;'>ТОП-20 навыков по годам</h2>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2015</h3>
-                <img src='{% static "images/top_skills_all_2015.png" %}' alt="top_skills_all_2015" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2015 %}
+                        {% for graphic in top_skills_all_2015 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2015" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 50px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>javascript</td><td>6883</td></tr>
-                    <tr><td>2</td><td>jquery</td><td>5196</td></tr>
-                    <tr><td>3</td><td>ооп</td><td>5156</td></tr>
-                    <tr><td>4</td><td>html5</td><td>5095</td></tr>
-                    <tr><td>5</td><td>html</td><td>3856</td></tr>
-                    <tr><td>6</td><td>c#</td><td>3468</td></tr>
-                    <tr><td>7</td><td>mvc</td><td>3154</td></tr>
-                    <tr><td>8</td><td>css</td><td>3145</td></tr>
-                    <tr><td>9</td><td>.net framework</td><td>3118</td></tr>
-                    <tr><td>10</td><td>asp.net</td><td>3008</td></tr>
-                    <tr><td>11</td><td>php</td><td>2799</td></tr>
-                    <tr><td>12</td><td>git</td><td>2546</td></tr>
-                    <tr><td>13</td><td>mysql</td><td>2458</td></tr>
-                    <tr><td>14</td><td>ведение переговоров</td><td>2438</td></tr>
-                    <tr><td>15</td><td>java</td><td>2346</td></tr>
-                    <tr><td>16</td><td>sql</td><td>2180</td></tr>
-                    <tr><td>17</td><td>управление проектами</td><td>1978</td></tr>
-                    <tr><td>18</td><td>поиск и привлечение клиентов</td><td>1868</td></tr>
-                    <tr><td>19</td><td>css3</td><td>1834</td></tr>
-                    <tr><td>20</td><td>английский язык</td><td>1737</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2015 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2016</h3>
-                <img src='{% static "images/top_skills_all_2016.png" %}' alt="top_skills_all_2016" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2016 %}
+                        {% for graphic in top_skills_all_2016 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2016" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>javascript</td><td>13624</td></tr>
-                    <tr><td>2</td><td>html</td><td>9890</td></tr>
-                    <tr><td>3</td><td>php</td><td>9069</td></tr>
-                    <tr><td>4</td><td>git</td><td>8480</td></tr>
-                    <tr><td>5</td><td>ведение переговоров</td><td>8407</td></tr>
-                    <tr><td>6</td><td>css</td><td>8244</td></tr>
-                    <tr><td>7</td><td>jquery</td><td>7731</td></tr>
-                    <tr><td>8</td><td>mysql</td><td>7655</td></tr>
-                    <tr><td>9</td><td>работа в команде</td><td>7111</td></tr>
-                    <tr><td>10</td><td>html5</td><td>6799</td></tr>
-                    <tr><td>11</td><td>пользователь пк</td><td>6727</td></tr>
-                    <tr><td>12</td><td>sql</td><td>6630</td></tr>
-                    <tr><td>13</td><td>java</td><td>6524</td></tr>
-                    <tr><td>14</td><td>управление проектами</td><td>6361</td></tr>
-                    <tr><td>15</td><td>ооп</td><td>6036</td></tr>
-                    <tr><td>16</td><td>грамотная речь</td><td>5515</td></tr>
-                    <tr><td>17</td><td>css3</td><td>5383</td></tr>
-                    <tr><td>18</td><td>поиск и привлечение клиентов</td><td>5285</td></tr>
-                    <tr><td>19</td><td>навыки продаж</td><td>5125</td></tr>
-                    <tr><td>20</td><td>активные продажи</td><td>5052</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2016 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2017</h3>
-                <img src='{% static "images/top_skills_all_2017.png" %}' alt="top_skills_all_2017" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2017 %}
+                        {% for graphic in top_skills_all_2017 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2017" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>javascript</td><td>20271</td></tr>
-                    <tr><td>2</td><td>html</td><td>14586</td></tr>
-                    <tr><td>3</td><td>css</td><td>12795</td></tr>
-                    <tr><td>4</td><td>php</td><td>12741</td></tr>
-                    <tr><td>5</td><td>git</td><td>12609</td></tr>
-                    <tr><td>6</td><td>mysql</td><td>11225</td></tr>
-                    <tr><td>7</td><td>ведение переговоров</td><td>10198</td></tr>
-                    <tr><td>8</td><td>sql</td><td>9970</td></tr>
-                    <tr><td>9</td><td>jquery</td><td>9765</td></tr>
-                    <tr><td>10</td><td>html5</td><td>8970</td></tr>
-                    <tr><td>11</td><td>управление проектами</td><td>8726</td></tr>
-                    <tr><td>12</td><td>java</td><td>8438</td></tr>
-                    <tr><td>13</td><td>работа в команде</td><td>8174</td></tr>
-                    <tr><td>14</td><td>linux</td><td>7975</td></tr>
-                    <tr><td>15</td><td>ооп</td><td>7929</td></tr>
-                    <tr><td>16</td><td>пользователь пк</td><td>7210</td></tr>
-                    <tr><td>17</td><td>английский язык</td><td>6899</td></tr>
-                    <tr><td>18</td><td>активные продажи</td><td>6872</td></tr>
-                    <tr><td>19</td><td>css3</td><td>6609</td></tr>
-                    <tr><td>20</td><td>b2b продажи</td><td>6432</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2017 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2018</h3>
-                <img src='{% static "images/top_skills_all_2018.png" %}' alt="top_skills_all_2018" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2018 %}
+                        {% for graphic in top_skills_all_2018 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2018" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>javascript</td><td>28186</td></tr>
-                    <tr><td>2</td><td>html</td><td>20259</td></tr>
-                    <tr><td>3</td><td>git</td><td>19482</td></tr>
-                    <tr><td>4</td><td>css</td><td>17715</td></tr>
-                    <tr><td>5</td><td>php</td><td>17206</td></tr>
-                    <tr><td>6</td><td>sql</td><td>16189</td></tr>
-                    <tr><td>7</td><td>mysql</td><td>15739</td></tr>
-                    <tr><td>8</td><td>ведение переговоров</td><td>15269</td></tr>
-                    <tr><td>9</td><td>управление проектами</td><td>13635</td></tr>
-                    <tr><td>10</td><td>работа в команде</td><td>13223</td></tr>
-                    <tr><td>11</td><td>java</td><td>12988</td></tr>
-                    <tr><td>12</td><td>linux</td><td>12478</td></tr>
-                    <tr><td>13</td><td>пользователь пк</td><td>11595</td></tr>
-                    <tr><td>14</td><td>html5</td><td>11441</td></tr>
-                    <tr><td>15</td><td>jquery</td><td>11372</td></tr>
-                    <tr><td>16</td><td>английский язык</td><td>10911</td></tr>
-                    <tr><td>17</td><td>активные продажи</td><td>10253</td></tr>
-                    <tr><td>18</td><td>грамотная речь</td><td>9906</td></tr>
-                    <tr><td>19</td><td>ооп</td><td>9805</td></tr>
-                    <tr><td>20</td><td>деловая переписка</td><td>9634</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2018 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2019</h3>
-                <img src='{% static "images/top_skills_all_2019.png" %}' alt="top_skills_all_2019" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2019 %}
+                        {% for graphic in top_skills_all_2019 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2019" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>javascript</td><td>31784</td></tr>
-                    <tr><td>2</td><td>sql</td><td>25717</td></tr>
-                    <tr><td>3</td><td>git</td><td>25201</td></tr>
-                    <tr><td>4</td><td>html</td><td>22223</td></tr>
-                    <tr><td>5</td><td>работа в команде</td><td>20022</td></tr>
-                    <tr><td>6</td><td>css</td><td>19696</td></tr>
-                    <tr><td>7</td><td>английский</td><td>19682</td></tr>
-                    <tr><td>8</td><td>пользователь ПК</td><td>18714</td></tr>
-                    <tr><td>9</td><td>linux</td><td>18239</td></tr>
-                    <tr><td>10</td><td>ведение переговоров</td><td>18103</td></tr>
-                    <tr><td>11</td><td>управление проектами</td><td>17968</td></tr>
-                    <tr><td>12</td><td>php</td><td>17573</td></tr>
-                    <tr><td>13</td><td>java</td><td>17184</td></tr>
-                    <tr><td>14</td><td>mysql</td><td>16248</td></tr>
-                    <tr><td>15</td><td>грамотная речь</td><td>15944</td></tr>
-                    <tr><td>16</td><td>python</td><td>14764</td></tr>
-                    <tr><td>17</td><td>активные продажи</td><td>12499</td></tr>
-                    <tr><td>18</td><td>ооп</td><td>11582</td></tr>
-                    <tr><td>19</td><td>деловая переписка</td><td>11237</td></tr>
-                    <tr><td>20</td><td>c#</td><td>11192</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2019 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2020</h3>
-                <img src='{% static "images/top_skills_all_2020.png" %}' alt="top_skills_all_2020" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2020 %}
+                        {% for graphic in top_skills_all_2020 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2020" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>sql</td><td>56827</td></tr>
-                    <tr><td>2</td><td>git</td><td>45545</td></tr>
-                    <tr><td>3</td><td>английский</td><td>43441</td></tr>
-                    <tr><td>4</td><td>javascript</td><td>41401</td></tr>
-                    <tr><td>5</td><td>работа в команде</td><td>39120</td></tr>
-                    <tr><td>6</td><td>пользователь ПК</td><td>37626</td></tr>
-                    <tr><td>7</td><td>linux</td><td>36612</td></tr>
-                    <tr><td>8</td><td>грамотная речь</td><td>33903</td></tr>
-                    <tr><td>9</td><td>java</td><td>30756</td></tr>
-                    <tr><td>10</td><td>html</td><td>28152</td></tr>
-                    <tr><td>11</td><td>python</td><td>28095</td></tr>
-                    <tr><td>12</td><td>управление проектами</td><td>27749</td></tr>
-                    <tr><td>13</td><td>css</td><td>25581</td></tr>
-                    <tr><td>14</td><td>активные продажи</td><td>23287</td></tr>
-                    <tr><td>15</td><td>ms sql</td><td>23206</td></tr>
-                    <tr><td>16</td><td>mysql</td><td>22536</td></tr>
-                    <tr><td>17</td><td>postgresql</td><td>21973</td></tr>
-                    <tr><td>18</td><td>ведение переговоров</td><td>21111</td></tr>
-                    <tr><td>19</td><td>php</td><td>21006</td></tr>
-                    <tr><td>20</td><td>ооп</td><td>17815</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2020 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>                
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2021</h3>
-                <img src='{% static "images/top_skills_all_2021.png" %}' alt="top_skills_all_2021" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2021 %}
+                        {% for graphic in top_skills_all_2021 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2021" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>sql</td><td>96510</td></tr>
-                    <tr><td>2</td><td>работа в команде</td><td>96445</td></tr>
-                    <tr><td>3</td><td>английский</td><td>86387</td></tr>
-                    <tr><td>4</td><td>грамотная речь</td><td>77301</td></tr>
-                    <tr><td>5</td><td>git</td><td>74360</td></tr>
-                    <tr><td>6</td><td>пользователь ПК</td><td>62074</td></tr>
-                    <tr><td>7</td><td>javascript</td><td>58701</td></tr>
-                    <tr><td>8</td><td>linux</td><td>58047</td></tr>
-                    <tr><td>9</td><td>управление проектами</td><td>51197</td></tr>
-                    <tr><td>10</td><td>python</td><td>49927</td></tr>
-                    <tr><td>11</td><td>java</td><td>42818</td></tr>
-                    <tr><td>12</td><td>html</td><td>38109</td></tr>
-                    <tr><td>13</td><td>postgresql</td><td>36185</td></tr>
-                    <tr><td>14</td><td>ведение переговоров</td><td>35481</td></tr>
-                    <tr><td>15</td><td>adobe photoshop</td><td>33680</td></tr>
-                    <tr><td>16</td><td>css</td><td>33007</td></tr>
-                    <tr><td>17</td><td>грамотность</td><td>32921</td></tr>
-                    <tr><td>18</td><td>деловая переписка</td><td>31642</td></tr>
-                    <tr><td>19</td><td>активные продажи</td><td>30768</td></tr>
-                    <tr><td>20</td><td>ms sql</td><td>30600</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2021 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2022</h3>
-                <img src='{% static "images/top_skills_all_2022.png" %}' alt="top_skills_all_2022" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2022 %}
+                        {% for graphic in top_skills_all_2022 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2022" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>работа в команде</td><td>92432</td></tr>
-                    <tr><td>2</td><td>sql</td><td>89917</td></tr>
-                    <tr><td>3</td><td>английский язык</td><td>70612</td></tr>
-                    <tr><td>4</td><td>git</td><td>67806</td></tr>
-                    <tr><td>5</td><td>linux</td><td>57966</td></tr>
-                    <tr><td>6</td><td>пользователь пк</td><td>53037</td></tr>
-                    <tr><td>7</td><td>грамотная речь</td><td>47937</td></tr>
-                    <tr><td>8</td><td>python</td><td>47922</td></tr>
-                    <tr><td>9</td><td>javascript</td><td>45707</td></tr>
-                    <tr><td>10</td><td>управление проектами</td><td>45076</td></tr>
-                    <tr><td>11</td><td>postgresql</td><td>37300</td></tr>
-                    <tr><td>12</td><td>adobe photoshop</td><td>35181</td></tr>
-                    <tr><td>13</td><td>java</td><td>34121</td></tr>
-                    <tr><td>14</td><td>техническое обслуживание</td><td>29324</td></tr>
-                    <tr><td>15</td><td>ms powerpoint</td><td>27899</td></tr>
-                    <tr><td>16</td><td>1с программирование</td><td>27311</td></tr>
-                    <tr><td>17</td><td>html</td><td>26802</td></tr>
-                    <tr><td>18</td><td>аналитическое мышление</td><td>26694</td></tr>
-                    <tr><td>19</td><td>грамотность</td><td>25894</td></tr>
-                    <tr><td>20</td><td>php</td><td>25737</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2022 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2023</h3>
-                <img src='{% static "images/top_skills_all_2023.png" %}' alt="top_skills_all_2023" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2023 %}
+                        {% for graphic in top_skills_all_2023 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2023" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 60px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>sql</td><td>62482</td></tr>
-                    <tr><td>2</td><td>работа в команде</td><td>45329</td></tr>
-                    <tr><td>3</td><td>linux</td><td>41140</td></tr>
-                    <tr><td>4</td><td>git</td><td>37825</td></tr>
-                    <tr><td>5</td><td>python</td><td>35777</td></tr>
-                    <tr><td>6</td><td>грамотная речь</td><td>31911</td></tr>
-                    <tr><td>7</td><td>postgresql</td><td>30540</td></tr>
-                    <tr><td>8</td><td>пользователь пк</td><td>28208</td></tr>
-                    <tr><td>9</td><td>английский язык</td><td>27032</td></tr>
-                    <tr><td>10</td><td>управление проектами</td><td>26449</td></tr>
-                    <tr><td>11</td><td>javascript</td><td>25418</td></tr>
-                    <tr><td>12</td><td>аналитическое мышление</td><td>24421</td></tr>
-                    <tr><td>13</td><td>adobe photoshop</td><td>24402</td></tr>
-                    <tr><td>14</td><td>1с программирование</td><td>22157</td></tr>
-                    <tr><td>15</td><td>работа с большим объемом информации</td><td>21461</td></tr>
-                    <tr><td>16</td><td>java</td><td>20771</td></tr>
-                    <tr><td>17</td><td>docker</td><td>18904</td></tr>
-                    <tr><td>18</td><td>техническая поддержка</td><td>18777</td></tr>
-                    <tr><td>19</td><td>деловое общение</td><td>18464</td></tr>
-                    <tr><td>20</td><td>php</td><td>18148</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2023 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <h3 class="mini-title" style='display: flex; justify-content: center;'>2024</h3>
-                <img src='{% static "images/top_skills_all_2024.png" %}' alt="top_skills_all_2024" style="width: 100%;">
+                <div>
+                    {% if top_skills_all_2024 %}
+                        {% for graphic in top_skills_all_2024 %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="top_skills_all_2024" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
                 <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
-                    <tr><th>ТОП</th><th>Навыки</th><th>Частота</th></tr>
-                    <tr><td>1</td><td>sql</td><td>48208</td></tr>
-                    <tr><td>2</td><td>linux</td><td>29695</td></tr>
-                    <tr><td>3</td><td>python</td><td>27355</td></tr>
-                    <tr><td>4</td><td>git</td><td>23688</td></tr>
-                    <tr><td>5</td><td>postgresql</td><td>23596</td></tr>
-                    <tr><td>6</td><td>аналитическое мышление</td><td>20180</td></tr>
-                    <tr><td>7</td><td>техническая поддержка</td><td>18674</td></tr>
-                    <tr><td>8</td><td>javascript</td><td>16272</td></tr>
-                    <tr><td>9</td><td>работа с большим объемом информации</td><td>15653</td></tr>
-                    <tr><td>10</td><td>настройка пк</td><td>15557</td></tr>
-                    <tr><td>11</td><td>английский язык</td><td>15190</td></tr>
-                    <tr><td>12</td><td>java</td><td>15190</td></tr>
-                    <tr><td>13</td><td>adobe photoshop</td><td>15058</td></tr>
-                    <tr><td>14</td><td>работа в команде</td><td>14685</td></tr>
-                    <tr><td>15</td><td>1с программирование</td><td>14534</td></tr>
-                    <tr><td>16</td><td>docker</td><td>14510</td></tr>
-                    <tr><td>17</td><td>грамотная речь</td><td>14381</td></tr>
-                    <tr><td>18</td><td>пользователь пк</td><td>13548</td></tr>
-                    <tr><td>19</td><td>деловая коммуникация</td><td>13370</td></tr>
-                    <tr><td>20</td><td>информационные технологии</td><td>12840</td></tr>
+                    <thead>
+                        <tr>
+                            <th>ТОП</th>
+                            <th>Навыки</th>
+                            <th>Частота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in skills_table_2024 %}
+                        <tr>
+                            <td>{{ row.number }}</td>
+                            <td>{{ row.skills_all }}</td>
+                            <td>{{ row.freq_all }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </main>

@@ -26,16 +26,59 @@
         <main class="main-cont">
             <div class="info-text">
                 <h1>География</h1>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
-                <p class="text">Текст</p>
+                <h2 class="mini-title" style='display: flex; justify-content: center;'>Уровень зарплат по городам для iOS-Разработчика</h2>
+                <div>
+                    {% if city_salary_dynamics_prof %}
+                        {% for graphic in city_salary_dynamics_prof %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="city_salary_dynamics_prof" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Город</th>
+                            <th>Средняя зарплата (RUB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in city_salary_dynamics_table %}
+                        <tr>
+                            <td>{{ row.city_prof }}</td>
+                            <td>{{ row.salary_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2 class="mini-title" style='display: flex; justify-content: center;'>Доля вакансий по городам для iOS-Разработчика</h2>
+                <div>
+                    {% if city_vacancy_share_prof %}
+                        {% for graphic in city_vacancy_share_prof %}
+                            <img class='image_style' src="{{ graphic.image.url }}" alt="city_vacancy_share_prof" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                        <p>Изображение не найдено.</p>
+                    {% endif %}
+                </div>
+                <table class="tables" style="width: 100%;text-align: center;margin-bottom: 80px;background-color: #F2F1FA;border: 3px solid #B9C7EB;border-radius: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Город</th>
+                            <th>Доля вакансий (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in city_salary_share_table %}
+                        <tr>
+                            <td>{{ row.city_prof }}</td>
+                            <td>{{ row.share_prof }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
